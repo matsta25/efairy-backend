@@ -9,6 +9,7 @@ TODO:
 - Docker
 - Deploy
 - Profiles
+- batch + csv + horoscope import
 
 - Oauth
 - User Roles

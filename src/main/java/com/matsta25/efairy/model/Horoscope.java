@@ -19,6 +19,9 @@ public class Horoscope {
     @Column(name = "content")
     private String content;
 
+    public Horoscope() {
+    }
+
     public long getId() {
         return id;
     }
