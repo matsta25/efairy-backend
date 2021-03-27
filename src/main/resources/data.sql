@@ -1,0 +1,132 @@
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (10, 'virgo', '2021-03-27', 'Lorem ipsum 0');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (11, 'virgo', '2021-03-28', 'Lorem ipsum 1');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (12, 'virgo', '2021-03-29', 'Lorem ipsum 2');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (13, 'virgo', '2021-03-30', 'Lorem ipsum 3');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (14, 'virgo', '2021-03-31', 'Lorem ipsum 4');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (15, 'virgo', '2021-04-01', 'Lorem ipsum 5');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (16, 'virgo', '2021-04-02', 'Lorem ipsum 6');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (17, 'virgo', '2021-04-03', 'Lorem ipsum 7');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (18, 'virgo', '2021-04-04', 'Lorem ipsum 8');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (19, 'virgo', '2021-04-05', 'Lorem ipsum 9');
+
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (20, 'libra', '2021-03-27', 'Lorem ipsum 0');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (21, 'libra', '2021-03-28', 'Lorem ipsum 1');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (22, 'libra', '2021-03-29', 'Lorem ipsum 2');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (23, 'libra', '2021-03-30', 'Lorem ipsum 3');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (24, 'libra', '2021-03-31', 'Lorem ipsum 4');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (25, 'libra', '2021-04-01', 'Lorem ipsum 5');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (26, 'libra', '2021-04-02', 'Lorem ipsum 6');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (27, 'libra', '2021-04-03', 'Lorem ipsum 7');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (28, 'libra', '2021-04-04', 'Lorem ipsum 8');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (29, 'libra', '2021-04-05', 'Lorem ipsum 9');
+
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (30, 'scorpio', '2021-03-27', 'Lorem ipsum 0');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (31, 'scorpio', '2021-03-28', 'Lorem ipsum 1');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (32, 'scorpio', '2021-03-29', 'Lorem ipsum 2');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (33, 'scorpio', '2021-03-30', 'Lorem ipsum 3');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (34, 'scorpio', '2021-03-31', 'Lorem ipsum 4');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (35, 'scorpio', '2021-04-01', 'Lorem ipsum 5');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (36, 'scorpio', '2021-04-02', 'Lorem ipsum 6');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (37, 'scorpio', '2021-04-03', 'Lorem ipsum 7');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (38, 'scorpio', '2021-04-04', 'Lorem ipsum 8');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (39, 'scorpio', '2021-04-05', 'Lorem ipsum 9');
+
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (40, 'sagittarius', '2021-03-27', 'Lorem ipsum 0');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (41, 'sagittarius', '2021-03-28', 'Lorem ipsum 1');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (42, 'sagittarius', '2021-03-29', 'Lorem ipsum 2');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (43, 'sagittarius', '2021-03-30', 'Lorem ipsum 3');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (44, 'sagittarius', '2021-03-31', 'Lorem ipsum 4');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (45, 'sagittarius', '2021-04-01', 'Lorem ipsum 5');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (46, 'sagittarius', '2021-04-02', 'Lorem ipsum 6');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (47, 'sagittarius', '2021-04-03', 'Lorem ipsum 7');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (48, 'sagittarius', '2021-04-04', 'Lorem ipsum 8');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (49, 'sagittarius', '2021-04-05', 'Lorem ipsum 9');
+
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (50, 'capricorn', '2021-03-27', 'Lorem ipsum 0');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (51, 'capricorn', '2021-03-28', 'Lorem ipsum 1');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (52, 'capricorn', '2021-03-29', 'Lorem ipsum 2');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (53, 'capricorn', '2021-03-30', 'Lorem ipsum 3');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (54, 'capricorn', '2021-03-31', 'Lorem ipsum 4');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (55, 'capricorn', '2021-04-01', 'Lorem ipsum 5');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (56, 'capricorn', '2021-04-02', 'Lorem ipsum 6');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (57, 'capricorn', '2021-04-03', 'Lorem ipsum 7');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (58, 'capricorn', '2021-04-04', 'Lorem ipsum 8');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (59, 'capricorn', '2021-04-05', 'Lorem ipsum 9');
+
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (60, 'aquarius', '2021-03-27', 'Lorem ipsum 0');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (61, 'aquarius', '2021-03-28', 'Lorem ipsum 1');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (62, 'aquarius', '2021-03-29', 'Lorem ipsum 2');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (63, 'aquarius', '2021-03-30', 'Lorem ipsum 3');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (64, 'aquarius', '2021-03-31', 'Lorem ipsum 4');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (65, 'aquarius', '2021-04-01', 'Lorem ipsum 5');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (66, 'aquarius', '2021-04-02', 'Lorem ipsum 6');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (67, 'aquarius', '2021-04-03', 'Lorem ipsum 7');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (68, 'aquarius', '2021-04-04', 'Lorem ipsum 8');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (69, 'aquarius', '2021-04-05', 'Lorem ipsum 9');
+
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (70, 'pisces', '2021-03-27', 'Lorem ipsum 0');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (71, 'pisces', '2021-03-28', 'Lorem ipsum 1');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (72, 'pisces', '2021-03-29', 'Lorem ipsum 2');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (73, 'pisces', '2021-03-30', 'Lorem ipsum 3');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (74, 'pisces', '2021-03-31', 'Lorem ipsum 4');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (75, 'pisces', '2021-04-01', 'Lorem ipsum 5');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (76, 'pisces', '2021-04-02', 'Lorem ipsum 6');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (77, 'pisces', '2021-04-03', 'Lorem ipsum 7');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (78, 'pisces', '2021-04-04', 'Lorem ipsum 8');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (79, 'pisces', '2021-04-05', 'Lorem ipsum 9');
+
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (80, 'aries', '2021-03-27', 'Lorem ipsum 0');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (81, 'aries', '2021-03-28', 'Lorem ipsum 1');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (82, 'aries', '2021-03-29', 'Lorem ipsum 2');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (83, 'aries', '2021-03-30', 'Lorem ipsum 3');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (84, 'aries', '2021-03-31', 'Lorem ipsum 4');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (85, 'aries', '2021-04-01', 'Lorem ipsum 5');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (86, 'aries', '2021-04-02', 'Lorem ipsum 6');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (87, 'aries', '2021-04-03', 'Lorem ipsum 7');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (88, 'aries', '2021-04-04', 'Lorem ipsum 8');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (89, 'aries', '2021-04-05', 'Lorem ipsum 9');
+
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (90, 'taurus', '2021-03-27', 'Lorem ipsum 0');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (91, 'taurus', '2021-03-28', 'Lorem ipsum 1');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (92, 'taurus', '2021-03-29', 'Lorem ipsum 2');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (93, 'taurus', '2021-03-30', 'Lorem ipsum 3');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (94, 'taurus', '2021-03-31', 'Lorem ipsum 4');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (95, 'taurus', '2021-04-01', 'Lorem ipsum 5');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (96, 'taurus', '2021-04-02', 'Lorem ipsum 6');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (97, 'taurus', '2021-04-03', 'Lorem ipsum 7');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (98, 'taurus', '2021-04-04', 'Lorem ipsum 8');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (99, 'taurus', '2021-04-05', 'Lorem ipsum 9');
+
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (100, 'gemini', '2021-03-27', 'Lorem ipsum 0');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (101, 'gemini', '2021-03-28', 'Lorem ipsum 1');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (102, 'gemini', '2021-03-29', 'Lorem ipsum 2');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (103, 'gemini', '2021-03-30', 'Lorem ipsum 3');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (104, 'gemini', '2021-03-31', 'Lorem ipsum 4');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (105, 'gemini', '2021-04-01', 'Lorem ipsum 5');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (106, 'gemini', '2021-04-02', 'Lorem ipsum 6');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (107, 'gemini', '2021-04-03', 'Lorem ipsum 7');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (108, 'gemini', '2021-04-04', 'Lorem ipsum 8');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (109, 'gemini', '2021-04-05', 'Lorem ipsum 9');
+
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (110, 'cancer', '2021-03-27', 'Lorem ipsum 0');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (111, 'cancer', '2021-03-28', 'Lorem ipsum 1');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (112, 'cancer', '2021-03-29', 'Lorem ipsum 2');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (113, 'cancer', '2021-03-30', 'Lorem ipsum 3');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (114, 'cancer', '2021-03-31', 'Lorem ipsum 4');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (115, 'cancer', '2021-04-01', 'Lorem ipsum 5');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (116, 'cancer', '2021-04-02', 'Lorem ipsum 6');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (117, 'cancer', '2021-04-03', 'Lorem ipsum 7');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (118, 'cancer', '2021-04-04', 'Lorem ipsum 8');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (119, 'cancer', '2021-04-05', 'Lorem ipsum 9');
+
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (120, 'leo', '2021-03-27', 'Lorem ipsum 0');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (121, 'leo', '2021-03-28', 'Lorem ipsum 1');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (122, 'leo', '2021-03-29', 'Lorem ipsum 2');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (123, 'leo', '2021-03-30', 'Lorem ipsum 3');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (124, 'leo', '2021-03-31', 'Lorem ipsum 4');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (125, 'leo', '2021-04-01', 'Lorem ipsum 5');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (126, 'leo', '2021-04-02', 'Lorem ipsum 6');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (127, 'leo', '2021-04-03', 'Lorem ipsum 7');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (128, 'leo', '2021-04-04', 'Lorem ipsum 8');
+INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (129, 'leo', '2021-04-05', 'Lorem ipsum 9');
+
