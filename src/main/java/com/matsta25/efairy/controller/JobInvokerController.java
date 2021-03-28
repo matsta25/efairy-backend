@@ -32,6 +32,7 @@ public class JobInvokerController {
         this.processJob = processJob;
     }
 
+//    TODO: fix swagger select file bug
     @PostMapping("/invoke-import-horoscope")
     @ApiOperation("This endpoint is providing import of the csv file with horoscopes to db with spring batch.")
     public String invokeImportHoroscope(
