@@ -1,32 +1,43 @@
 package com.matsta25.efairy.model;
 
+
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 public class Horoscope {
 
+//    TODO: find out witch annotations are really necessary
+
     @Id
+    @Column(name = "id", nullable = false)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "zodiac_sign")
-    @Enumerated(EnumType.STRING)
-    private ZodiacSign zodiacSign;
+    @Column(name = "zodiac_sign", nullable = false)
+    private String zodiacSign;
 
-    @Column(name = "date")
+    @Column(name = "date", nullable = false)
     private LocalDate date;
 
-    @Column(name = "content")
+    @Column(name = "content", nullable = false)
     private String content;
 
     public Horoscope() {
+    }
+
+    public Horoscope(String zodiacSign, LocalDate date, String content) {
+        this.zodiacSign = zodiacSign;
+        this.date = date;
+        this.content = content;
     }
 
     public long getId() {
         return id;
     }
 
-    public ZodiacSign getZodiacSign() {
+    public String getZodiacSign() {
         return zodiacSign;
     }
 
@@ -38,7 +49,7 @@ public class Horoscope {
         return content;
     }
 
-    public void setZodiacSign(ZodiacSign zodiacSign) {
+    public void setZodiacSign(String zodiacSign) {
         this.zodiacSign = zodiacSign;
     }
 
@@ -48,5 +59,16 @@ public class Horoscope {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    @Override
+    public String toString() {
+        return "Horoscope{" +
+                "id=" + id +
+                ", zodiacSign=" + zodiacSign +
+//                ", zodiacSign=" + zodiacSign.toString() +
+                ", date=" + date +
+                ", content='" + content + '\'' +
+                '}';
     }
 }

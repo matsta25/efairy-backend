@@ -17,6 +17,7 @@ public class HoroscopeService {
     }
 
     public Horoscope getHoroscope() {
-        return this.horoscopeRepository.getHoroscopeByZodiacSignAndDate(ZodiacSign.virgo, LocalDate.now()).orElse(null);
+        // TODO: handle optional better way
+        return this.horoscopeRepository.getHoroscopeByZodiacSignAndDate(ZodiacSign.virgo.getLabel(), LocalDate.now()).orElse(null);
     }
 }

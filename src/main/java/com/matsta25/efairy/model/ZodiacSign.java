@@ -1,5 +1,7 @@
 package com.matsta25.efairy.model;
 
+import java.util.HashMap;
+
 public enum ZodiacSign {
     virgo("panna"),
     libra("waga"),
@@ -14,6 +16,7 @@ public enum ZodiacSign {
     cancer("rak"),
     leo("lew");
 
+    private static final HashMap<String, ZodiacSign> MAP = new HashMap<String, ZodiacSign>();
 
     public final String label;
 
@@ -23,5 +26,22 @@ public enum ZodiacSign {
 
     public String getLabel() {
         return label;
+    }
+
+    public static ZodiacSign getByLabel(String label) {
+        return MAP.get(label);
+    }
+
+    static {
+        for (ZodiacSign field : ZodiacSign.values()) {
+            MAP.put(field.getLabel(), field);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "ZodiacSign{" +
+                "label='" + label + '\'' +
+                '}';
     }
 }
