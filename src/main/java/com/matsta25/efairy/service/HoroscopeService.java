@@ -16,8 +16,8 @@ public class HoroscopeService {
         this.horoscopeRepository = horoscopeRepository;
     }
 
-    public Horoscope getHoroscope() {
+    public Horoscope getHoroscope(ZodiacSign zodiacSignProcessed) {
         // TODO: handle optional better way
-        return this.horoscopeRepository.getHoroscopeByZodiacSignAndDate(ZodiacSign.virgo.getLabel(), LocalDate.now()).orElse(null);
+        return this.horoscopeRepository.getHoroscopeByZodiacSignAndDate(zodiacSignProcessed.getLabel(), LocalDate.now()).orElse(null);
     }
 }

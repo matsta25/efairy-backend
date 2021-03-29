@@ -18,6 +18,11 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-batch'
     implementation 'io.springfox:springfox-boot-starter:3.0.0'
     implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+    implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+
+    implementation 'net.lingala.zip4j:zip4j:2.7.0'
+    implementation 'commons-io:commons-io:2.8.0'
+
 
     implementation 'commons-io:commons-io:2.8.0'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'

@@ -24,7 +24,8 @@ import org.springframework.core.io.FileSystemResource;
 
 import javax.sql.DataSource;
 
-import static com.matsta25.efairy.controller.JobInvokerController.FILE_PATH;
+import static com.matsta25.efairy.service.BatchJobService.FILE_PATH;
+
 
 @Configuration
 @EnableBatchProcessing

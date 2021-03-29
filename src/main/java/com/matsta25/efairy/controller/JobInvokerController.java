@@ -1,5 +1,6 @@
 package com.matsta25.efairy.controller;
 
+import com.matsta25.efairy.service.BatchJobService;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.io.FileUtils;
 import org.springframework.batch.core.Job;
@@ -23,46 +24,19 @@ import java.util.UUID;
 @RequestMapping("/api/v1/batch")
 public class JobInvokerController {
 
-    public static final String FILE_PATH = "filePath";
-    JobLauncher jobLauncher;
-    Job processJob;
+    BatchJobService batchJobService;
 
-    public JobInvokerController(JobLauncher jobLauncher, Job processJob) {
-        this.jobLauncher = jobLauncher;
-        this.processJob = processJob;
+    public JobInvokerController(BatchJobService batchJobService) {
+        this.batchJobService = batchJobService;
     }
 
-//    TODO: fix swagger select file bug
+    //    TODO: fix swagger select file bug
     @PostMapping("/invoke-import-horoscope")
     @ApiOperation("This endpoint is providing import of the csv file with horoscopes to db with spring batch.")
     public String invokeImportHoroscope(
             @RequestParam("file") MultipartFile file
-            ) throws Exception {
-
-        JobParameters jobParameter = new JobParametersBuilder()
-                .addString(FILE_PATH, getFileLocation(file.getResource()))
-                .toJobParameters();
-        jobLauncher.run(processJob, jobParameter);
-
+    ) throws Exception {
+        this.batchJobService.invokeImportHoroscope(file);
         return "Job - import horoscope has been invoked.";
-    }
-
-    private String getFileLocation(Resource resource) {
-        File temporaryFile;
-        try {
-            temporaryFile = Files.createTempFile("prefix", UUID.randomUUID().toString()).toFile();
-        } catch (IOException e) {
-            throw new UncheckedIOException("Couldn't create temp file", e);
-        }
-
-        try {
-            FileUtils.copyInputStreamToFile(resource.getInputStream(), temporaryFile);
-        } catch (IOException e) {
-            FileUtils.deleteQuietly(temporaryFile);
-            throw new UncheckedIOException(
-                    "Couldn't copy copy of resource '" + resource + "' to file '" + temporaryFile + "'", e);
-        }
-
-        return temporaryFile.toPath().toString();
     }
 }

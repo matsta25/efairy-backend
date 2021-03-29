@@ -1,9 +1,11 @@
 package com.matsta25.efairy.controller;
 
 import com.matsta25.efairy.model.Horoscope;
+import com.matsta25.efairy.model.ZodiacSign;
 import com.matsta25.efairy.service.HoroscopeService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -17,7 +19,10 @@ public class HoroscopeController {
     }
 
     @GetMapping
-    public Horoscope getDailyHoroscope() {
-        return this.horoscopeService.getHoroscope();
+    public Horoscope getDailyHoroscope(
+            @RequestParam(required = true) String zodiacSign
+    ) {
+        ZodiacSign zodiacSignProcessed = ZodiacSign.valueOf(zodiacSign);
+        return this.horoscopeService.getHoroscope(zodiacSignProcessed);
     }
 }
