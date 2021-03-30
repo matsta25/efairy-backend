@@ -22,16 +22,18 @@ public class NotificationListener extends JobExecutionListenerSupport {
 
     @Override
     public void afterJob(JobExecution jobExecution) {
-        if(jobExecution.getStatus() == BatchStatus.COMPLETED) {
+        if (jobExecution.getStatus() == BatchStatus.COMPLETED) {
             LOGGER.info("Job finished! Verifying results");
 
-            jdbcTemplate.query("SELECT zodiac_sign, date, content FROM Horoscope",
-                    (rs, row) -> new Horoscope(
-                            rs.getString(1),
-                            rs.getDate(2).toLocalDate(),
-                            rs.getString(3)
-                            )).forEach(horoscope -> LOGGER.info("Found <" + horoscope + "> in database."));
+            jdbcTemplate
+                    .query(
+                            "SELECT zodiac_sign, date, content FROM Horoscope",
+                            (rs, row) ->
+                                    new Horoscope(
+                                            rs.getString(1),
+                                            rs.getDate(2).toLocalDate(),
+                                            rs.getString(3)))
+                    .forEach(horoscope -> LOGGER.info("Found <" + horoscope + "> in database."));
         }
     }
-
 }

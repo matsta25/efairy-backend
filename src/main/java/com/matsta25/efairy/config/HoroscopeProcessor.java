@@ -1,9 +1,8 @@
 package com.matsta25.efairy.config;
 
 import com.matsta25.efairy.model.Horoscope;
-import org.springframework.batch.item.ItemProcessor;
-
 import java.time.LocalDate;
+import org.springframework.batch.item.ItemProcessor;
 
 public class HoroscopeProcessor implements ItemProcessor<Horoscope, Horoscope> {
 

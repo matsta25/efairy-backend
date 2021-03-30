@@ -40,8 +40,6 @@ public enum ZodiacSign {
 
     @Override
     public String toString() {
-        return "ZodiacSign{" +
-                "label='" + label + '\'' +
-                '}';
+        return "ZodiacSign{" + "label='" + label + '\'' + '}';
     }
 }

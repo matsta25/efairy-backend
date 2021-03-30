@@ -19,9 +19,7 @@ public class HoroscopeController {
     }
 
     @GetMapping
-    public Horoscope getDailyHoroscope(
-            @RequestParam(required = true) String zodiacSign
-    ) {
+    public Horoscope getDailyHoroscope(@RequestParam(required = true) String zodiacSign) {
         ZodiacSign zodiacSignProcessed = ZodiacSign.valueOf(zodiacSign);
         return this.horoscopeService.getHoroscope(zodiacSignProcessed);
     }

@@ -1,7 +1,8 @@
 plugins {
-    id 'org.springframework.boot' version '2.4.4'
-    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-    id 'java'
+	id 'org.springframework.boot' version '2.4.4'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id "com.diffplug.spotless" version "5.11.1"
 }
 
 group = 'com.matsta25'
@@ -9,59 +10,74 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 repositories {
-    mavenCentral()
+	mavenCentral()
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-batch'
-    implementation 'io.springfox:springfox-boot-starter:3.0.0'
-    implementation 'io.springfox:springfox-swagger-ui:3.0.0'
-    implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-batch'
+	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+	implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+	implementation 'io.springfox:springfox-swagger-ui:3.0.0'
 
-    implementation 'net.lingala.zip4j:zip4j:2.7.0'
-    implementation 'commons-io:commons-io:2.8.0'
+	implementation 'net.lingala.zip4j:zip4j:2.7.0'
+	implementation 'commons-io:commons-io:2.8.0'
 
 
-    implementation 'commons-io:commons-io:2.8.0'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	implementation 'commons-io:commons-io:2.8.0'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
-    runtimeOnly 'com.h2database:h2'
+	runtimeOnly 'com.h2database:h2'
 
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+spotless {
+	format 'misc', {
+		target '**/*.gradle', '**/*.md', '.gitignore'
+
+		trimTrailingWhitespace()
+		indentWithTabs()
+		endWithNewline()
+	}
+	java {
+		importOrder()
+		removeUnusedImports()
+		googleJavaFormat('1.8').aosp()
+	}
 }
 
 test {
-    useJUnitPlatform()
+	useJUnitPlatform()
 }
 
 task generateHoroscopes() {
-    doLast {
-        File dataSql = file("src/main/resources/data.sql")
-        dataSql.write("")
-        ["panna",
-         "waga",
-         "skorpion",
-         "strzelec",
-         "koziorozec",
-         "wodnik",
-         "ryby",
-         "baran",
-         "byk",
-         "bliznieta",
-         "rak",
-         "lew"].eachWithIndex {zodiacSign, index ->
-            for (int i = 0; i < 10; i++) {
+	doLast {
+		File dataSql = file("src/main/resources/data.sql")
+		dataSql.write("")
+		["panna",
+		"waga",
+		"skorpion",
+		"strzelec",
+		"koziorozec",
+		"wodnik",
+		"ryby",
+		"baran",
+		"byk",
+		"bliznieta",
+		"rak",
+		"lew"].eachWithIndex {zodiacSign, index ->
+			for (int i = 0; i < 10; i++) {
 				Date date = new Date() + i
 				String datePart = date.format("yyyy-MM-dd")
-                dataSql.append("INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (" +
-                        "${index+1}${i}, " +
-                        "'${zodiacSign}', " +
-                        "'${datePart}', " +
-                        "'Lorem ipsum ${i}');\n")
-            }
+				dataSql.append("INSERT INTO Horoscope(id, zodiac_sign, date, content) VALUES (" +
+						"${index+1}${i}, " +
+						"'${zodiacSign}', " +
+						"'${datePart}', " +
+						"'Lorem ipsum ${i}');\n")
+			}
 			dataSql.append("\n")
-        }
-    }
+		}
+	}
 }

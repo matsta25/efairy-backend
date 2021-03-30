@@ -1,6 +1,9 @@
 package com.matsta25.efairy.config;
 
+import static com.matsta25.efairy.service.BatchJobService.FILE_PATH;
+
 import com.matsta25.efairy.model.Horoscope;
+import javax.sql.DataSource;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
@@ -21,11 +24,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.FileSystemResource;
-
-import javax.sql.DataSource;
-
-import static com.matsta25.efairy.service.BatchJobService.FILE_PATH;
-
 
 @Configuration
 @EnableBatchProcessing
@@ -48,7 +46,8 @@ public class BatchConfig {
 
     @Bean
     @StepScope
-    public FlatFileItemReader<Horoscope> reader(@Value("#{jobParameters[filePath]}") String filePath) {
+    public FlatFileItemReader<Horoscope> reader(
+            @Value("#{jobParameters[filePath]}") String filePath) {
         return new FlatFileItemReaderBuilder<Horoscope>()
                 .name("horoscopeItemReader")
                 .resource(new FileSystemResource(filePath))
@@ -56,10 +55,11 @@ public class BatchConfig {
                 .names(FIELD_NAMES_TO_READ)
                 .lineMapper(lineMapper())
                 .fieldSetMapper(
-                        new BeanWrapperFieldSetMapper<Horoscope>() {{
-                            setTargetType(Horoscope.class);
-                        }}
-                )
+                        new BeanWrapperFieldSetMapper<Horoscope>() {
+                            {
+                                setTargetType(Horoscope.class);
+                            }
+                        })
                 .build();
     }
 
@@ -88,15 +88,17 @@ public class BatchConfig {
     public JdbcBatchItemWriter<Horoscope> writer(final DataSource dataSource) {
         return new JdbcBatchItemWriterBuilder<Horoscope>()
                 .itemSqlParameterSourceProvider(new BeanPropertyItemSqlParameterSourceProvider<>())
-                .sql("INSERT INTO Horoscope(zodiac_sign, date, content) VALUES (:zodiacSign, :date, :content)")
+                .sql(
+                        "INSERT INTO Horoscope(zodiac_sign, date, content) VALUES (:zodiacSign, :date, :content)")
                 .dataSource(dataSource)
                 .build();
     }
 
     @Bean
     public Step stepOne(JdbcBatchItemWriter<Horoscope> writer) {
-        return stepBuilderFactory.get("stepOne")
-                .<Horoscope, Horoscope> chunk(CHUNK_SIZE)
+        return stepBuilderFactory
+                .get("stepOne")
+                .<Horoscope, Horoscope>chunk(CHUNK_SIZE)
                 .reader(reader(FILE_PATH))
                 .processor(processor())
                 .writer(writer)
@@ -105,7 +107,8 @@ public class BatchConfig {
 
     @Bean
     public Job importHoroscopeJob(NotificationListener listener, Step stepOne) {
-        return jobBuilderFactory.get("importHoroscopeJob")
+        return jobBuilderFactory
+                .get("importHoroscopeJob")
                 .incrementer(new RunIdIncrementer())
                 .listener(listener)
                 .flow(stepOne)

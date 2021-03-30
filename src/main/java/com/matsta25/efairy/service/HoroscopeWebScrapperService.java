@@ -1,20 +1,9 @@
 package com.matsta25.efairy.service;
 
+import static com.matsta25.efairy.other.ArchiveFileUtils.DESTINATION_PATH;
+
 import com.matsta25.efairy.other.ArchiveFileUtils;
 import com.matsta25.efairy.other.RestTemplateCustom;
-import org.apache.commons.io.FileUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.event.EventListener;
-import org.springframework.http.HttpMethod;
-import org.springframework.mock.web.MockMultipartFile;
-import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Service;
-import org.springframework.util.StreamUtils;
-import org.springframework.web.util.UriComponentsBuilder;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -24,8 +13,16 @@ import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-
-import static com.matsta25.efairy.other.ArchiveFileUtils.DESTINATION_PATH;
+import org.apache.commons.io.FileUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpMethod;
+import org.springframework.mock.web.MockMultipartFile;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Service;
+import org.springframework.util.StreamUtils;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @Service
 public class HoroscopeWebScrapperService {
@@ -40,15 +37,16 @@ public class HoroscopeWebScrapperService {
     RestTemplateCustom restTemplateCustom;
     BatchJobService batchJobService;
 
-    public HoroscopeWebScrapperService(RestTemplateCustom restTemplateCustom, BatchJobService batchJobService) {
+    public HoroscopeWebScrapperService(
+            RestTemplateCustom restTemplateCustom, BatchJobService batchJobService) {
         this.restTemplateCustom = restTemplateCustom;
         this.batchJobService = batchJobService;
     }
 
-//    @EventListener(ApplicationReadyEvent.class)
-//    public void doSomethingAfterStartup() {
-//        startHoroscopeWebScraper();
-//    }
+    //    @EventListener(ApplicationReadyEvent.class)
+    //    public void doSomethingAfterStartup() {
+    //        startHoroscopeWebScraper();
+    //    }
 
     @Scheduled(cron = "0 0 0 * * MON")
     public void startHoroscopeWebScraper() {
@@ -80,10 +78,8 @@ public class HoroscopeWebScrapperService {
             if (file.isFile() && !file.getName().equals(".gitkeep")) {
                 try {
                     this.batchJobService.invokeImportHoroscope(
-                            new MockMultipartFile( file.getName(),
-                                    new FileInputStream(file.getPath())
-                            )
-                    );
+                            new MockMultipartFile(
+                                    file.getName(), new FileInputStream(file.getPath())));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -93,26 +89,32 @@ public class HoroscopeWebScrapperService {
 
     private File makeRequestAndGetFile(LocalDate firstDayOfWeek, LocalDate lastDayOfWeek) {
         Map<String, String> params = getParamsForRequest(firstDayOfWeek, lastDayOfWeek);
-        LOGGER.info("HoroscopeWebScrapperService: Made request for {} with {}", horoscopeWebScraperUrl, params);
+        LOGGER.info(
+                "HoroscopeWebScrapperService: Made request for {} with {}",
+                horoscopeWebScraperUrl,
+                params);
 
-        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(horoscopeWebScraperUrl)
-                .queryParam("endDate", params.get("endDate"))
-                .queryParam("startDate", params.get("startDate"));
+        UriComponentsBuilder builder =
+                UriComponentsBuilder.fromHttpUrl(horoscopeWebScraperUrl)
+                        .queryParam("endDate", params.get("endDate"))
+                        .queryParam("startDate", params.get("startDate"));
 
-
-        return restTemplateCustom.getRestTemplate().execute(
-                builder.toUriString(),
-                HttpMethod.GET,
-                null,
-                clientHttpResponse -> {
-                    File ret = File.createTempFile("download", "tmp");
-                    StreamUtils.copy(clientHttpResponse.getBody(), new FileOutputStream(ret));
-                    return ret;
-                }
-        );
+        return restTemplateCustom
+                .getRestTemplate()
+                .execute(
+                        builder.toUriString(),
+                        HttpMethod.GET,
+                        null,
+                        clientHttpResponse -> {
+                            File ret = File.createTempFile("download", "tmp");
+                            StreamUtils.copy(
+                                    clientHttpResponse.getBody(), new FileOutputStream(ret));
+                            return ret;
+                        });
     }
 
-    private Map<String, String> getParamsForRequest(LocalDate firstDayOfWeek, LocalDate lastDayOfWeek) {
+    private Map<String, String> getParamsForRequest(
+            LocalDate firstDayOfWeek, LocalDate lastDayOfWeek) {
         Map<String, String> params = new HashMap<>();
         params.put("endDate", firstDayOfWeek.toString());
         params.put("startDate", lastDayOfWeek.toString());

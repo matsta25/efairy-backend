@@ -1,18 +1,16 @@
 package com.matsta25.efairy.model;
 
-
-
-import javax.persistence.*;
 import java.time.LocalDate;
+import javax.persistence.*;
 
 @Entity
 public class Horoscope {
 
-//    TODO: find out witch annotations are really necessary
+    //    TODO: find out witch annotations are really necessary
 
     @Id
     @Column(name = "id", nullable = false)
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(name = "zodiac_sign", nullable = false)
@@ -24,8 +22,7 @@ public class Horoscope {
     @Column(name = "content", nullable = false)
     private String content;
 
-    public Horoscope() {
-    }
+    public Horoscope() {}
 
     public Horoscope(String zodiacSign, LocalDate date, String content) {
         this.zodiacSign = zodiacSign;
@@ -63,12 +60,18 @@ public class Horoscope {
 
     @Override
     public String toString() {
-        return "Horoscope{" +
-                "id=" + id +
-                ", zodiacSign=" + zodiacSign +
-//                ", zodiacSign=" + zodiacSign.toString() +
-                ", date=" + date +
-                ", content='" + content + '\'' +
-                '}';
+        return "Horoscope{"
+                + "id="
+                + id
+                + ", zodiacSign="
+                + zodiacSign
+                +
+                //                ", zodiacSign=" + zodiacSign.toString() +
+                ", date="
+                + date
+                + ", content='"
+                + content
+                + '\''
+                + '}';
     }
 }

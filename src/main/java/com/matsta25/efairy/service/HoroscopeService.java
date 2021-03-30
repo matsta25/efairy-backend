@@ -3,9 +3,8 @@ package com.matsta25.efairy.service;
 import com.matsta25.efairy.model.Horoscope;
 import com.matsta25.efairy.model.ZodiacSign;
 import com.matsta25.efairy.repository.HoroscopeRepository;
-import org.springframework.stereotype.Service;
-
 import java.time.LocalDate;
+import org.springframework.stereotype.Service;
 
 @Service
 public class HoroscopeService {
@@ -18,6 +17,8 @@ public class HoroscopeService {
 
     public Horoscope getHoroscope(ZodiacSign zodiacSignProcessed) {
         // TODO: handle optional better way
-        return this.horoscopeRepository.getHoroscopeByZodiacSignAndDate(zodiacSignProcessed.getLabel(), LocalDate.now()).orElse(null);
+        return this.horoscopeRepository
+                .getHoroscopeByZodiacSignAndDate(zodiacSignProcessed.getLabel(), LocalDate.now())
+                .orElse(null);
     }
 }
