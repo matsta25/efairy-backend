@@ -17,6 +17,8 @@ import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.http.HttpMethod;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -43,10 +45,10 @@ public class HoroscopeWebScrapperService {
         this.batchJobService = batchJobService;
     }
 
-    //    @EventListener(ApplicationReadyEvent.class)
-    //    public void doSomethingAfterStartup() {
-    //        startHoroscopeWebScraper();
-    //    }
+    @EventListener(ApplicationReadyEvent.class)
+    public void doSomethingAfterStartup() {
+        startHoroscopeWebScraper();
+    }
 
     @Scheduled(cron = "0 0 0 * * MON")
     public void startHoroscopeWebScraper() {

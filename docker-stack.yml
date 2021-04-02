@@ -1,0 +1,23 @@
+version: '3.6'
+
+services:
+  efairy-backend:
+    image: 127.0.0.1:5000/efairy-backend:latest
+    ports:
+      - 8080:8080
+    networks:
+      - efairy-backend-horoscope-web-scraper
+    environment:
+      - "SPRING_PROFILES_ACTIVE=prod"
+
+  horoscope-web-scraper:
+    image: 127.0.0.1:5000/horoscope-web-scraper:latest
+    depends_on:
+      - efairy-backend
+    networks:
+      - efairy-backend-horoscope-web-scraper
+
+  # frontend here
+
+networks:
+  efairy-backend-horoscope-web-scraper:
