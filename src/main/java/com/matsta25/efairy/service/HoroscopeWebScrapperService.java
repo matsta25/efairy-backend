@@ -29,6 +29,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 @Service
 public class HoroscopeWebScrapperService {
 
+    private static String OS = System.getProperty("os.name").toLowerCase();
+
     private static final String ZIP_DIRECTORY_NAME = "scrapedData/";
 
     @Value("${horoscope-web-scraper.url}")
@@ -50,12 +52,12 @@ public class HoroscopeWebScrapperService {
         startHoroscopeWebScraper();
     }
 
-    @Scheduled(cron = "0 0 0 * * MON")
+    @Scheduled(cron = "0 0 0 * * SUN")
     public void startHoroscopeWebScraper() {
         LOGGER.info("HoroscopeWebScrapperService: HoroscopeWebScraper has started!");
 
-        LocalDate firstDayOfWeek = LocalDate.now();
-        LocalDate lastDayOfWeek = LocalDate.now().with(DayOfWeek.SUNDAY);
+        LocalDate firstDayOfWeek = LocalDate.now().plusDays(1);
+        LocalDate lastDayOfWeek = LocalDate.now().plusDays(1).with(DayOfWeek.SUNDAY);
 
         File file = makeRequestAndGetFile(firstDayOfWeek, lastDayOfWeek);
 
@@ -66,7 +68,11 @@ public class HoroscopeWebScrapperService {
 
     private void deleteDirectoryWithContent() {
         try {
-            FileUtils.deleteDirectory(new File(DESTINATION_PATH));
+            FileUtils.deleteDirectory(new File(DESTINATION_PATH + ZIP_DIRECTORY_NAME));
+            LOGGER.info(
+                    "HoroscopeWebScrapperService: Successfully deleted dir: "
+                            + DESTINATION_PATH
+                            + ZIP_DIRECTORY_NAME);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -108,7 +114,13 @@ public class HoroscopeWebScrapperService {
                         HttpMethod.GET,
                         null,
                         clientHttpResponse -> {
-                            File ret = File.createTempFile("download", "tmp");
+                            File ret = null;
+                            if (OS.contains("win")) {
+                                ret = File.createTempFile("download", "tmp");
+                            } else {
+                                ret = new File("/tmp/file.zip");
+                            }
+                            LOGGER.info("File: {}", ret);
                             StreamUtils.copy(
                                     clientHttpResponse.getBody(), new FileOutputStream(ret));
                             return ret;

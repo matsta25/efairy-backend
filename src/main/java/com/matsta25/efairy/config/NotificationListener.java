@@ -1,6 +1,5 @@
 package com.matsta25.efairy.config;
 
-import com.matsta25.efairy.model.Horoscope;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.batch.core.BatchStatus;
@@ -26,14 +25,8 @@ public class NotificationListener extends JobExecutionListenerSupport {
             LOGGER.info("Job finished! Verifying results");
 
             jdbcTemplate
-                    .query(
-                            "SELECT zodiac_sign, date, content FROM Horoscope",
-                            (rs, row) ->
-                                    new Horoscope(
-                                            rs.getString(1),
-                                            rs.getDate(2).toLocalDate(),
-                                            rs.getString(3)))
-                    .forEach(horoscope -> LOGGER.info("Found <" + horoscope + "> in database."));
+                    .query("SELECT COUNT(zodiac_sign) FROM Horoscope", (rs, row) -> rs.getInt(1))
+                    .forEach(count -> LOGGER.info("Found <" + count + "> items in database."));
         }
     }
 }
