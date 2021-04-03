@@ -1,6 +1,0 @@
-CREATE TABLE Horoscope (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    zodiac_sign VARCHAR(400) NOT NULL,
-    date DATE NOT NULL,
-    content VARCHAR(2000) NOT NULL
-);

@@ -52,12 +52,12 @@ public class HoroscopeWebScrapperService {
         startHoroscopeWebScraper();
     }
 
-    @Scheduled(cron = "0 0 0 * * SUN")
+    @Scheduled(cron = "0 0 0 * * MON")
     public void startHoroscopeWebScraper() {
         LOGGER.info("HoroscopeWebScrapperService: HoroscopeWebScraper has started!");
 
-        LocalDate firstDayOfWeek = LocalDate.now().plusDays(1);
-        LocalDate lastDayOfWeek = LocalDate.now().plusDays(1).with(DayOfWeek.SUNDAY);
+        LocalDate firstDayOfWeek = LocalDate.now();
+        LocalDate lastDayOfWeek = LocalDate.now().with(DayOfWeek.SUNDAY);
 
         File file = makeRequestAndGetFile(firstDayOfWeek, lastDayOfWeek);
 
