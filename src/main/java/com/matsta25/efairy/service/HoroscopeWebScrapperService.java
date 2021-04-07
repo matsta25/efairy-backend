@@ -47,12 +47,13 @@ public class HoroscopeWebScrapperService {
         this.batchJobService = batchJobService;
     }
 
-    @EventListener(ApplicationReadyEvent.class)
-    public void doSomethingAfterStartup() {
-        startHoroscopeWebScraper();
-    }
+//    @EventListener(ApplicationReadyEvent.class)
+//    public void doSomethingAfterStartup() {
+//        startHoroscopeWebScraper();
+//    }
 
-    @Scheduled(cron = "0 0 0 * * MON")
+    //    @Scheduled(cron = "0 0 0 * * MON")
+    @Scheduled(cron = "0 15 21 * * THU")
     public void startHoroscopeWebScraper() {
         LOGGER.info("HoroscopeWebScrapperService: HoroscopeWebScraper has started!");
 

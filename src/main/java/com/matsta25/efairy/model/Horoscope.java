@@ -19,7 +19,8 @@ public class Horoscope {
     @Column(name = "date", nullable = false)
     private LocalDate date;
 
-    @Column(name = "content", nullable = false)
+    // TODO: find out best length value
+    @Column(name = "content", nullable = false, length = 1000)
     private String content;
 
     public Horoscope() {}

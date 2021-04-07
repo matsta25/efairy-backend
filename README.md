@@ -15,7 +15,8 @@ TODO:
 - [-] User Roles
 - [+] spotless
 - [-] questions + answers (get only My questions)
-- [-] ...
+- [-] add DDD
+- [-] security frontend check
 
 
 http://localhost:8080/swagger-ui/
