@@ -18,7 +18,7 @@ public class HoroscopeService {
     public Horoscope getHoroscope(ZodiacSign zodiacSignProcessed) {
         // TODO: handle optional better way
         return this.horoscopeRepository
-                .getHoroscopeByZodiacSignAndDate(zodiacSignProcessed.getLabel(), LocalDate.now())
+                .findFirstByZodiacSignAndDate(zodiacSignProcessed.getLabel(), LocalDate.now())
                 .orElse(null);
     }
 }

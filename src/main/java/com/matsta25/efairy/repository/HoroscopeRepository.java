@@ -9,5 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface HoroscopeRepository extends JpaRepository<Horoscope, Long> {
 
-    Optional<Horoscope> getHoroscopeByZodiacSignAndDate(String zodiacSign, LocalDate date);
+    //    Optional<Horoscope> getHoroscopeByZodiacSignAndDate(String zodiacSign, LocalDate date);
+
+    Optional<Horoscope> findFirstByZodiacSignAndDate(String zodiacSign, LocalDate date);
 }
