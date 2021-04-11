@@ -1,0 +1,19 @@
+# docker-compose -f docker-compose-keycloak-local.yml up
+
+version: '3.6'
+
+services:
+  keycloak:
+    image: jboss/keycloak
+    restart: always
+    environment:
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+      KEYCLOAK_IMPORT: /tmp/realm-export.json
+    volumes:
+      - ./keycloak/realm-export.json:/tmp/realm-export.json
+    ports:
+      - 8082:8082
+    command: ["-Djboss.http.port=8082", "-Dkeycloak.profile.feature.upload_scripts=enabled"]
+
+

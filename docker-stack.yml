@@ -17,6 +17,21 @@ services:
     networks:
       - efairy-backend-horoscope-web-scraper
 
+#  keycloak:
+#    image: jboss/keycloak
+#    environment:
+#      KEYCLOAK_USER: admin
+#      KEYCLOAK_PASSWORD: admin
+#      KEYCLOAK_IMPORT: /tmp/realm-export.json
+#    volumes:
+#      - ./keycloak/realm-export.json:/tmp/realm-export.json
+#    ports:
+#      - 8082:8082
+#    command: ["-Djboss.http.port=8082"]
+#    stop_signal: SIGINT
+#    networks:
+#      - efairy-backend-horoscope-web-scraper
+
   # frontend here
 
 networks:

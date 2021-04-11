@@ -13,13 +13,17 @@ Content-Disposition: form-data; name="file"; filename="horoscopeBatchInput.csv"
 
 ###
 GET http://localhost:8080/api/v1/question
+Authorization: bearer {{access_token}}
 
 
 ###
 POST http://localhost:8080/api/v1/question
 Content-Type: text/plain
+Authorization: bearer {{access_token}}
+
 
 How are you?
+
 
 ###
 POST http://localhost:8080/api/v1/question/1/answer

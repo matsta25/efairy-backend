@@ -13,6 +13,8 @@ public class Question {
     @Column(name = "id")
     private long id;
 
+    private String userId;
+
     private String content;
 
     @CreationTimestamp
@@ -25,14 +27,10 @@ public class Question {
 
     public Question() {}
 
-    public Question(String content) {
+    public Question(String userId, String content) {
+        this.userId = userId;
         this.content = content;
         this.answer = null;
-    }
-
-    public Question(String content, Answer answer) {
-        this.content = content;
-        this.answer = answer;
     }
 
     public long getId() {
@@ -41,6 +39,14 @@ public class Question {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getContent() {

@@ -16,7 +16,10 @@ TODO:
 - [+] spotless
 - [-] questions + answers (get only My questions)
 - [-] add DDD
-- [-] security frontend check
+
+- [-] security frontend check'
 
 
 http://localhost:8080/swagger-ui/
+
+https://medium.com/devops-dudes/securing-spring-boot-rest-apis-with-keycloak-1d760b2004e

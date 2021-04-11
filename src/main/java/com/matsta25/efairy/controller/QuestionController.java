@@ -3,6 +3,7 @@ package com.matsta25.efairy.controller;
 import com.matsta25.efairy.model.Answer;
 import com.matsta25.efairy.model.Question;
 import com.matsta25.efairy.service.QuestionService;
+import java.security.Principal;
 import java.util.List;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,13 +18,13 @@ public class QuestionController {
     }
 
     @GetMapping
-    public List<Question> getQuestions() {
-        return this.questionService.getQuestions();
+    public List<Question> getQuestions(Principal principal) {
+        return this.questionService.getQuestions(principal.getName());
     }
 
     @PostMapping
-    public Question createQuestion(@RequestBody String questionContent) {
-        return this.questionService.createQuestion(questionContent);
+    public Question createQuestion(Principal principal, @RequestBody String questionContent) {
+        return this.questionService.createQuestion(principal.getName(), questionContent);
     }
 
     @PostMapping("/{questionId}/answer")

@@ -19,12 +19,12 @@ public class QuestionService {
         this.answerRepository = answerRepository;
     }
 
-    public List<Question> getQuestions() {
-        return this.questionRepository.findAll();
+    public List<Question> getQuestions(String userId) {
+        return this.questionRepository.findByUserId(userId);
     }
 
-    public Question createQuestion(String questionContent) {
-        return this.questionRepository.save(new Question(questionContent));
+    public Question createQuestion(String userId, String questionContent) {
+        return this.questionRepository.save(new Question(userId, questionContent));
     }
 
     public Answer createAnswerForQuestion(Long questionId, String answerContent) {
