@@ -5,6 +5,7 @@ import com.matsta25.efairy.model.Question;
 import com.matsta25.efairy.service.QuestionService;
 import java.security.Principal;
 import java.util.List;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -18,13 +19,13 @@ public class QuestionController {
     }
 
     @GetMapping
-    public List<Question> getQuestions(Principal principal) {
-        return this.questionService.getQuestions(principal.getName());
+    public List<Question> getQuestions(Authentication authentication) {
+        return this.questionService.getQuestions(authentication);
     }
 
     @PostMapping
-    public Question createQuestion(Principal principal, @RequestBody String questionContent) {
-        return this.questionService.createQuestion(principal.getName(), questionContent);
+    public Question createQuestion(Authentication authentication, @RequestBody String questionContent) {
+        return this.questionService.createQuestion(authentication, questionContent);
     }
 
     @PostMapping("/{questionId}/answer")

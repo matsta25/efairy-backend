@@ -2,25 +2,16 @@
 POST http://localhost:8082/auth/realms/efairy-realm/protocol/openid-connect/token
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=password&client_id=efairy-backend&client_secret=6d6ba3a2-aea2-49f3-901c-60c6e3e929e8&username=user&password=user
+grant_type=password&client_id=efairy-backend&client_secret=22f1890d-7bee-432e-847a-0a3952d27be3&username=user&password=user
 
 ###
 POST http://localhost:8082/auth/realms/efairy-realm/protocol/openid-connect/token
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=password&client_id=efairy-backend&client_secret=6d6ba3a2-aea2-49f3-901c-60c6e3e929e8&username=user1&password=user1
+grant_type=password&client_id=efairy-backend&client_secret=22f1890d-7bee-432e-847a-0a3952d27be3&username=user2&password=user2
 
 ###
 POST http://localhost:8082/auth/realms/efairy-realm/protocol/openid-connect/token
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=password&client_id=efairy-backend&client_secret=6d6ba3a2-aea2-49f3-901c-60c6e3e929e8&username=moderator&password=moderator
-
-###
-POST http://localhost:8082/auth/realms/efairy-realm/protocol/openid-connect/token
-Content-Type: application/x-www-form-urlencoded
-
-grant_type=password&client_id=efairy-backend&client_secret=6d6ba3a2-aea2-49f3-901c-60c6e3e929e8&username=admin&password=admin
-
-
-
+grant_type=password&client_id=efairy-backend&client_secret=22f1890d-7bee-432e-847a-0a3952d27be3&username=moderator&password=moderator

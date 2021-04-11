@@ -5,6 +5,8 @@ import com.matsta25.efairy.model.Question;
 import com.matsta25.efairy.repository.AnswerRepository;
 import com.matsta25.efairy.repository.QuestionRepository;
 import java.util.List;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,12 +21,17 @@ public class QuestionService {
         this.answerRepository = answerRepository;
     }
 
-    public List<Question> getQuestions(String userId) {
-        return this.questionRepository.findByUserId(userId);
+    public List<Question> getQuestions(Authentication authentication) {
+        if (authentication
+                .getAuthorities()
+                .contains(new SimpleGrantedAuthority("ROLE_moderator"))) {
+            return this.questionRepository.findAll();
+        }
+        return this.questionRepository.findByUserId(authentication.getName());
     }
 
-    public Question createQuestion(String userId, String questionContent) {
-        return this.questionRepository.save(new Question(userId, questionContent));
+    public Question createQuestion(Authentication authentication, String questionContent) {
+        return this.questionRepository.save(new Question(authentication.getName(), questionContent));
     }
 
     public Answer createAnswerForQuestion(Long questionId, String answerContent) {

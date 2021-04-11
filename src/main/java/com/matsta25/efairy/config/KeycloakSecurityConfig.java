@@ -7,6 +7,7 @@ import org.keycloak.adapters.springsecurity.config.KeycloakWebSecurityConfigurer
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -29,9 +30,13 @@ public class KeycloakSecurityConfig extends KeycloakWebSecurityConfigurerAdapter
                 .permitAll()
                 .antMatchers("/api/v1/horoscope")
                 .permitAll()
-                .antMatchers("/api/v1/question")
+                .antMatchers(HttpMethod.GET, "/api/v1/question")
+                .hasAnyRole("user", "moderator", "admin")
+                .antMatchers(HttpMethod.POST, "/api/v1/question")
                 .hasAnyRole("user")
-                .antMatchers("/api/v1/batch")
+                .antMatchers("/api/v1/question/*/answer")
+                .hasAnyRole("moderator", "admin")
+                .antMatchers("/api/v1/batch/**")
                 .hasAnyRole("moderator", "admin")
                 .anyRequest()
                 .permitAll();
