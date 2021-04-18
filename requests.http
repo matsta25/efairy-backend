@@ -30,3 +30,8 @@ POST http://localhost:8080/api/v1/question/1/answer
 Content-Type: text/plain
 
 Im fine.
+
+###
+POST http://localhost:8082/auth/realms/efairy-realm/protocol/openid-connect/auth
+Authorization: Bearer {{access_token}}
+

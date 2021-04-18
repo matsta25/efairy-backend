@@ -8,10 +8,31 @@ grant_type=password&client_id=efairy-backend&client_secret=22f1890d-7bee-432e-84
 POST http://localhost:8082/auth/realms/efairy-realm/protocol/openid-connect/token
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=password&client_id=efairy-backend&client_secret=22f1890d-7bee-432e-847a-0a3952d27be3&username=user2&password=user2
+grant_type=client_credentials&client_id=efairy-backend&client_secret=78c80187-98be-4f4d-ae55-c266a1f9bc06&code=7ebc2ac2-94e0-4f3b-bc84-87159ad33961.e74d2baf-eddf-4cf3-b37d-7de74a879db1.45c9fce5-16ba-434e-85fe-5d00e1fd9484
 
 ###
 POST http://localhost:8082/auth/realms/efairy-realm/protocol/openid-connect/token
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=password&client_id=efairy-backend&client_secret=22f1890d-7bee-432e-847a-0a3952d27be3&username=moderator&password=moderator
+grant_type=refresh_token&client_id=efairy-backend&client_secret=6a9fd2aa-f550-47d3-b922-a4ada8455669&refresh_token=eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJQWVFZSWl4SFRmYTJpM0gxSWEwNzdhMG4wMmhrQkF4aW9DS2hUYUQ4RGNNIn0.eyJleHAiOjE2MTg3ODQ2MDQsImlhdCI6MTYxODc4MjgwNCwianRpIjoiY2YzYmRmNDktNWNhMS00MmRiLWJhY2YtZjgyNjQ0ODMwNDAzIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgyL2F1dGgvcmVhbG1zL2VmYWlyeS1yZWFsbSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJiMWQ4OWRjMi1jMTJkLTRjODAtYmVlZC1jOWE2MDY1ZWM2MDQiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJlZmFpcnktYmFja2VuZCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiIiwiaHR0cDovL2xvY2FsaG9zdDo4MDgzIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiZWZhaXJ5LWJhY2tlbmQiOnsicm9sZXMiOlsidW1hX3Byb3RlY3Rpb24iLCJ1c2VyIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJjbGllbnRIb3N0IjoiMTcyLjIzLjAuMSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiY2xpZW50SWQiOiJlZmFpcnktYmFja2VuZCIsInByZWZlcnJlZF91c2VybmFtZSI6InNlcnZpY2UtYWNjb3VudC1lZmFpcnktYmFja2VuZCIsImNsaWVudEFkZHJlc3MiOiIxNzIuMjMuMC4xIn0.Y02Mr5Pct-zcLhRbeTgtaM_iwz0Ko5f2yuVy1An3vn30KyG4731f7kNg6h6yTob0tBxh6d73jzNXgzkCyRWHygCtnzQi6-8aU6JSPmfEcRU6WBz_Hs4kcG-uC8WwsG4-yWRq3QFzDP0CGitP9AojGNTtqD3wtVhV5d-bjji3dFvIYyFx_0-zfc8-u6yXp7LxyaSnhV95iko_TUhaDUacWrW5qPpaz5V2cZ0O3EleWgrBL1j3Mo2fDOrhyDdiHBGKN_uFFvM6rV8yTcEFPs5iq4CuXuO4nO8_zeoD0PP9WtR9dqevJOY38yC_NHON8eiNBQdvVfnxrBSeRHSdYGa5bw
+
+###
+# http://localhost:8082/auth/realms/efairy-realm/protocol/openid-connect/auth?response_type=code&client_id=efairy-backend
+http://localhost:8082/auth/realms/efairy-realm/broker/facebook/login?client_id=efairy-backend
+
+###
+GET http://localhost:8082/auth/realms/efairy-realm/broker/facebook/endpoint
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=authorization_code&code=3bffbda8-1453-4e2c-8edb-bffd096c40b4.04c1e2e4-e6a2-460f-841a-83ef532b01d8.e3e6990e-7c61-48a3-93e0-ee1bbc3724a4&redirect_uri=http://localhost:4200/authorization-code/callback&client_id=serendipity-pwa&client_secret=Password12
+
+###
+DZIALA:
+http://localhost:8082/auth/realms/efairy-realm/protocol/openid-connect/auth?client_id=efairy-backend&redirect_uri=http%3A%2F%2Flocalhost%3A8080&response_type=code&scope=openid&kc_idp_hint=facebook
+http://localhost:8082/auth/realms/efairy-realm/protocol/openid-connect/auth?client_id=efairy-backend&redirect_uri=http%3A%2F%2Flocalhost%3A8080&response_type=code&scope=openid&kc_idp_hint=google
+
+###
+POST http://localhost:8082/auth/realms/efairy-realm/protocol/openid-connect/logout
+Content-Type: application/x-www-form-urlencoded
+
+client_id=efairy-backend&client_secret=6a9fd2aa-f550-47d3-b922-a4ada8455669&refresh_token=

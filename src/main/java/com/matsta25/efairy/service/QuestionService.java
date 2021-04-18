@@ -31,7 +31,8 @@ public class QuestionService {
     }
 
     public Question createQuestion(Authentication authentication, String questionContent) {
-        return this.questionRepository.save(new Question(authentication.getName(), questionContent));
+        return this.questionRepository.save(
+                new Question(authentication.getName(), questionContent));
     }
 
     public Answer createAnswerForQuestion(Long questionId, String answerContent) {

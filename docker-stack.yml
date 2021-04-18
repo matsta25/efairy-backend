@@ -2,7 +2,7 @@ version: '3.6'
 
 services:
   efairy-backend:
-    image: matsta25.tk:5000/efairy-backend:latest
+    image: 127.0.0.1:5000/efairy-backend:latest
     ports:
       - 8080:8080
     networks:
@@ -11,7 +11,7 @@ services:
       - "SPRING_PROFILES_ACTIVE=prod"
 
   horoscope-web-scraper:
-    image: matsta25.tk:5000/horoscope-web-scraper:latest
+    image: 127.0.0.1:5000/horoscope-web-scraper:latest
     depends_on:
       - efairy-backend
     networks:
@@ -24,8 +24,8 @@ services:
       KEYCLOAK_USER: admin
       KEYCLOAK_PASSWORD: admin
     ports:
-      - 8082:8082
-    command: ["-Djboss.http.port=8082", "-Dkeycloak.profile.feature.upload_scripts=enabled"]
+      - 8082:9990
+    command: ["-Dkeycloak.profile.feature.upload_scripts=enabled"]
     networks:
       - efairy-backend-horoscope-web-scraper
 

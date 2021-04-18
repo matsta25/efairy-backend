@@ -3,12 +3,10 @@ package com.matsta25.efairy.controller;
 import com.matsta25.efairy.model.Horoscope;
 import com.matsta25.efairy.model.ZodiacSign;
 import com.matsta25.efairy.service.HoroscopeService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/v1/horoscope")
 public class HoroscopeController {
 

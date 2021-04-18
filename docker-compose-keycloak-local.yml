@@ -9,8 +9,11 @@ services:
     environment:
       KEYCLOAK_USER: admin
       KEYCLOAK_PASSWORD: admin
+    volumes:
+    - ./keycloak/efairytheme:/opt/jboss/keycloak/themes/efairytheme
     ports:
       - 8082:8082
+    # TODO: "-Dkeycloak.frontendUrl=http://keyclock.efairy.matsta.tk/auth"
     command: ["-Djboss.http.port=8082", "-Dkeycloak.profile.feature.upload_scripts=enabled"]
 
 

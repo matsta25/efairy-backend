@@ -3,7 +3,6 @@ package com.matsta25.efairy.controller;
 import com.matsta25.efairy.model.Answer;
 import com.matsta25.efairy.model.Question;
 import com.matsta25.efairy.service.QuestionService;
-import java.security.Principal;
 import java.util.List;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +23,8 @@ public class QuestionController {
     }
 
     @PostMapping
-    public Question createQuestion(Authentication authentication, @RequestBody String questionContent) {
+    public Question createQuestion(
+            Authentication authentication, @RequestBody String questionContent) {
         return this.questionService.createQuestion(authentication, questionContent);
     }
 
