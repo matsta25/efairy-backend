@@ -10,4 +10,6 @@ public interface QuestionRepository extends JpaRepository<Question, Long> {
     Question findQuestionById(Long id);
 
     List<Question> findByUserId(String userId);
+
+    Question findByIdAndUserId(Long id, String userId);
 }

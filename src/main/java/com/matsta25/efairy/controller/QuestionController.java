@@ -8,6 +8,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/v1/question")
 public class QuestionController {
 
@@ -20,6 +21,11 @@ public class QuestionController {
     @GetMapping
     public List<Question> getQuestions(Authentication authentication) {
         return this.questionService.getQuestions(authentication);
+    }
+
+    @GetMapping("/{id}")
+    public Question getQuestion(Authentication authentication, @PathVariable Long id) {
+        return this.questionService.getQuestion(authentication, id);
     }
 
     @PostMapping

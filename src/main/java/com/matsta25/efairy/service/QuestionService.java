@@ -30,6 +30,15 @@ public class QuestionService {
         return this.questionRepository.findByUserId(authentication.getName());
     }
 
+    public Question getQuestion(Authentication authentication, Long id) {
+        if (authentication
+                .getAuthorities()
+                .contains(new SimpleGrantedAuthority("ROLE_moderator"))) {
+            return this.questionRepository.findById(id).get();
+        }
+        return this.questionRepository.findByIdAndUserId(id, authentication.getName());
+    }
+
     public Question createQuestion(Authentication authentication, String questionContent) {
         return this.questionRepository.save(
                 new Question(authentication.getName(), questionContent));
