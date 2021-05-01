@@ -28,6 +28,8 @@ public class KeycloakSecurityConfig extends KeycloakWebSecurityConfigurerAdapter
         http.authorizeRequests()
                 .antMatchers("/h2-console/**")
                 .permitAll()
+                .antMatchers("/efiary-actuator")
+                .permitAll()
                 .antMatchers("/api/v1/horoscope")
                 .permitAll()
                 .antMatchers(HttpMethod.GET, "/api/v1/question")
