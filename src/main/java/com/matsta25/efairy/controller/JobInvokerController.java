@@ -2,6 +2,7 @@ package com.matsta25.efairy.controller;
 
 import com.matsta25.efairy.service.BatchJobService;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,8 +23,9 @@ public class JobInvokerController {
     @PostMapping("/invoke-import-horoscope")
     @ApiOperation(
             "This endpoint is providing import of the csv file with horoscopes to db with spring batch.")
-    public String invokeImportHoroscope(@RequestParam("file") MultipartFile file) throws Exception {
+    public ResponseEntity<String> invokeImportHoroscope(@RequestParam("file") MultipartFile file)
+            throws Exception {
         this.batchJobService.invokeImportHoroscope(file);
-        return "Job - import horoscope has been invoked.";
+        return ResponseEntity.ok("Job - import horoscope has been invoked.");
     }
 }

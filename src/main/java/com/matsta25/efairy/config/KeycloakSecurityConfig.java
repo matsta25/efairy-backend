@@ -33,13 +33,13 @@ public class KeycloakSecurityConfig extends KeycloakWebSecurityConfigurerAdapter
                 .antMatchers("/api/v1/horoscope")
                 .permitAll()
                 .antMatchers(HttpMethod.GET, "/api/v1/question")
-                .hasAnyRole("user", "moderator", "admin")
+                .hasAnyRole("user", "moderator")
                 .antMatchers(HttpMethod.POST, "/api/v1/question")
                 .hasAnyRole("user")
                 .antMatchers("/api/v1/question/*/answer")
-                .hasAnyRole("moderator", "admin")
+                .hasAnyRole("moderator")
                 .antMatchers("/api/v1/batch/**")
-                .hasAnyRole("moderator", "admin")
+                .hasAnyRole("admin")
                 .anyRequest()
                 .permitAll();
         http.csrf().disable();
